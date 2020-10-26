@@ -3,14 +3,6 @@
 
 using namespace std;
 
-void modificar(){
-
-    
-
-
-
-}
-
 int main(){
 
     ArregloDinamico arreglo;
