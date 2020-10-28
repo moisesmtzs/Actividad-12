@@ -25,6 +25,9 @@ public:
     void eliminar( size_t t );
     void mostrar( );
 
+    T* buscar( const T& s );
+    Arreglo<T*> buscar_todos( const T& s );
+
     size_t size();
     T operator[]( size_t p ){
         return arreglo[p];
@@ -174,5 +177,38 @@ void Arreglo<T>::mostrar(){
 
     }
 }
+
+template<class T>
+T* Arreglo<T>::buscar( const T& s ){
+
+    for ( size_t i = 0 ; i < cont ; i++ ){
+
+        if ( s == arreglo[i] ){
+            return &arreglo[i];
+        }
+
+    }
+    return nullptr;
+
+}
+
+template<class T>
+Arreglo<T*> Arreglo<T>::buscar_todos( const T& s ){
+
+    Arreglo<T*> ptrs;
+
+    for ( size_t i = 0 ; i < cont ; i++ ){
+
+        if ( s == arreglo[i] ){
+
+            ptrs.insertar_final( &arreglo[i] );
+
+        }
+        
+    }
+    return ptrs;
+}
+
+
 
 #endif
